@@ -6,7 +6,11 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\MpesaController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\OrderController;
 
+
+
+// Auth routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -34,4 +38,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/users/{id}', [UserController::class, 'show']);
     Route::put('/users/{id}', [UserController::class, 'update']);
     Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+    // Orders routes (new)
+    Route::get('/orders', [OrderController::class, 'index']);      // list all orders (admin only)
+    Route::get('/orders/{id}', [OrderController::class, 'show']);  // view single order
+    Route::post('/orders', [OrderController::class, 'store']);     // create new order (after payment)
+    Route::put('/orders/{id}', [OrderController::class, 'update']); // update order status
+    Route::delete('/orders/{id}', [OrderController::class, 'destroy']); // delete order
 });
