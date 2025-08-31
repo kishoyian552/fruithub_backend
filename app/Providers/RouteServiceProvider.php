@@ -14,10 +14,10 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->routes(function () {
             Route::middleware('api')
-                ->prefix('api') // this ensures routes use /api/ prefix
+                ->prefix('api') // API prefix
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
+            Route::middleware('web')// Web middleware
                 ->group(base_path('routes/web.php'));
         });
     }

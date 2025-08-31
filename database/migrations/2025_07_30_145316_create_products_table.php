@@ -15,15 +15,15 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->string('image')->nullable();
             $table->string('category')->nullable();
-            $table->boolean('in_stock')->default(true); // snake_case
+            $table->boolean('in_stock')->default(true); 
             $table->float('rating')->default(0);
             $table->integer('reviews')->default(0);
             $table->timestamps();
-        });
+        });// products table
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('products');
-    }
+        Schema::dropIfExists('products');// products table
+    }// rollback
 };

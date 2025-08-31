@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index(): JsonResponse
     {
         return response()->json(Product::all());
-    }
+    }// Display a listing of all products
 
     /**
      * Display the specified product by ID.
@@ -30,11 +30,11 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         if (!$product) {
-            return response()->json(['message' => 'Product not found'], 404);
+            return response()->json(['message' => 'Product not found'], 404);// If product not found, return 404
         }
 
-        return response()->json($product);
-    }
+        return response()->json($product);// If product found, return product details
+    }// Display the specified product by ID
 
     /**
      * Store a newly created product in the database.
@@ -53,12 +53,12 @@ class ProductController extends Controller
             'inStock' => 'required|boolean',
             'rating' => 'nullable|numeric|min:0|max:5',
             'reviews' => 'nullable|integer|min:0',
-        ]);
+        ]);// Validate the fields sent by frontend
 
         $product = Product::create($validated);
 
         return response()->json($product, 201);
-    }
+    }// Store a newly created product in the database
 
     /**
      * Update the specified product by ID.
@@ -69,11 +69,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, int $id): JsonResponse
     {
-        $product = Product::find($id);
+        $product = Product::find($id);// Find the product by ID
 
         if (!$product) {
             return response()->json(['message' => 'Product not found'], 404);
-        }
+        }// If product not found, return 404
 
         // Validate fields sent by frontend (partial updates allowed)
         $validated = $request->validate([
@@ -85,12 +85,12 @@ class ProductController extends Controller
             'inStock' => 'sometimes|boolean',
             'rating' => 'nullable|numeric|min:0|max:5',
             'reviews' => 'nullable|integer|min:0',
-        ]);
+        ]);// Validate the fields sent by frontend
 
         $product->update($validated);
 
         return response()->json($product);
-    }
+    }// Update the specified product by ID
 
     /**
      * Delete the specified product by ID.
@@ -104,10 +104,10 @@ class ProductController extends Controller
 
         if (!$product) {
             return response()->json(['message' => 'Product not found'], 404);
-        }
+        }// If product not found, return 404
 
-        $product->delete();
+        $product->delete();// Delete the product
 
         return response()->json(['message' => 'Product deleted successfully']);
-    }
+    }// Delete the specified product by ID
 }

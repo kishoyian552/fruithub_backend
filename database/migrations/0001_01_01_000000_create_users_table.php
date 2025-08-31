@@ -9,19 +9,18 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->nullable();  // ✅ Add this
-            $table->string('last_name')->nullable();   // ✅ Add this
-            $table->string('name')->nullable();        // optional fallback
+            $table->string('first_name')->nullable();  
+            $table->string('last_name')->nullable();   
+            $table->string('name')->nullable();        
             $table->string('email')->unique();
-            $table->string('phone')->nullable();       // ✅ Add this
+            $table->string('phone')->nullable();       
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-        });
+        });// users table
     }
-
     public function down(): void
     {
         Schema::dropIfExists('users');
-    }
+    }// rollback
 };

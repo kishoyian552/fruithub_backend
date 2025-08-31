@@ -12,8 +12,8 @@ class Product extends Model
         'price',
         'image',
         'category',
-        'in_stock',  // snake_case
+        'in_stock',  
         'rating',
         'reviews'
-    ];
+    ];// assignable fields
 }

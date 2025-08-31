@@ -14,10 +14,10 @@ class RoleSeeder extends Seeder
             ['name' => 'user', 'description' => 'This is a role for a normal user.'],
             ['name' => 'teacher', 'description' => 'This is a role for a teacher.'],
             ['name' => 'student', 'description' => 'This is a role for a student.'],
-        ];
+        ];// predefined roles
 
         foreach ($roles as $role) {
             Role::create($role);
-        }
+        }// seed roles
     }
 }

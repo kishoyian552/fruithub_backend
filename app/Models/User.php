@@ -16,10 +16,10 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
-    ];
+    ];// assignable fields
 
     protected $hidden = [
         'password',
         'remember_token',
-    ];
+    ];// hidden fields
 }

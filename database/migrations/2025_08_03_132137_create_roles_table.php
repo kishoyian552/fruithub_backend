@@ -11,10 +11,10 @@ return new class extends Migration {
             $table->string('name');
             $table->string('description', 1000)->nullable();
             $table->timestamps();
-        });
+        });// roles table
     }
 
     public function down(): void {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('roles');// roles table
     }
 };

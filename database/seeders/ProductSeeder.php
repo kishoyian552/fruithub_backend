@@ -22,7 +22,7 @@ class ProductSeeder extends Seeder
             'in_stock' => true,
             'rating' => 4.5,
             'reviews' => 23
-        ]);
+        ]);// add products
 
         Product::create([
             'name' => 'Organic Bananas',
@@ -33,7 +33,7 @@ class ProductSeeder extends Seeder
             'in_stock' => true,
             'rating' => 4.7,
             'reviews' => 30
-        ]);
+        ]);// add products
 
         Product::create([
             'name' => 'Sweet Oranges',
@@ -44,6 +44,6 @@ class ProductSeeder extends Seeder
             'in_stock' => true,
             'rating' => 4.2,
             'reviews' => 18
-        ]);
+        ]);// add products
     }
 }
