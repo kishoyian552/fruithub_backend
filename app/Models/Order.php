@@ -33,6 +33,6 @@ class Order extends Model
      
     public function product()// Relationship: Order belongs to a Product
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class);//
     }
 }

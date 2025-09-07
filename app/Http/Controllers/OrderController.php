@@ -23,7 +23,7 @@ class OrderController extends Controller
             'mpesa_receipt'      => 'nullable|string',
         ]);// Validate the incoming request
 
-        $userId = Auth::check() ? Auth::id() : ($request->user_id ?? null);
+        $userId = Auth::check() ? Auth::id() : ($request->user_id ?? null);// Get the user ID from the authenticated user or the provided user ID
 
         $orders = [];// Initialize an array to hold the created orders
         foreach ($request->items as $item) {
@@ -61,7 +61,7 @@ class OrderController extends Controller
   
     public function myOrders()//View loggedin user orders.
     {
-        $orders = Order::with('product')
+        $orders = Order::with('product')// Eager load the product relationship
             ->where('user_id', Auth::id())// Get orders for the authenticated user
             ->latest()
             ->get();

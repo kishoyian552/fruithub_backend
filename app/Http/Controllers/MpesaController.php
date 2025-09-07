@@ -78,10 +78,10 @@ class MpesaController extends Controller
         ];// Prepare the data for the STK push request
 
         try {
-            $response = Http::withToken($accessToken)
+            $response = Http::withToken($accessToken)// Set the access token for the request
                 ->post('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest', $stkData);// Make a POST request to the M-Pesa STK push API with the access token and STK data
 
-            Log::info("STK Push Request:", $stkData);
+            Log::info("STK Push Request:", $stkData);// Log the STK push request data
             Log::info("STK Push Response:", $response->json());// Log the STK push request data and response
 
             return response()->json($response->json());// Return the response from the M-Pesa API
@@ -93,7 +93,7 @@ class MpesaController extends Controller
     }
 
   //callback from mpesa
-    public function callback(Request $request)
+    public function callback(Request $request)//
     {
         Log::info("M-Pesa Callback:", $request->all());// Log the callback data received from M-Pesa
 
